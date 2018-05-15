@@ -5,7 +5,7 @@
 	"main": "lib/index.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/eCollect/zaek",
+		"url": "https://github.com/eCollect/zaek"
 	},
   "scripts": {
     "test": "test.js"
