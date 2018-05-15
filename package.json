@@ -2,7 +2,11 @@
   "name": "zaek",
   "version": "0.0.1",
   "description": "Streaming rabbitMQ service bus",
-  "main": "lib/index.js",
+	"main": "lib/index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/eCollect/zaek",
+	},
   "scripts": {
     "test": "test.js"
 	},
