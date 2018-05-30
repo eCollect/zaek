@@ -6,12 +6,11 @@ async function run() {
 	const broker = await zaek.connect({
 		user: 'guest',
 		pass: 'guest',
+		username: 'guest',
+		password: 'guest',
 		server: ['127.0.0.1'],
 		port: 5672,
-		publishTimeout: 100,
-		timeout: 1000,
-		failAfter: 30,
-		retryLimit: 400,
+		hostname: 'localhost',
 	});
 
 	broker.once('error', err => {
@@ -19,12 +18,15 @@ async function run() {
 	});
 
 
-	const stream = await broker.publisher('test:zaek:event-2', true).createReadStream('test-app');
+	const stream = await broker.worker('test:zaek:command:152').createReadStream(['mitko:mitko']);
+	console.log(stream);
 
 	stream.on('data', (message) => {
-		console.log('recived :', message.body);
+		console.log(message);
 		message.ack();
 	});
+
+	stream.on('error', (e) => console.error(e));
 }
 
 run();

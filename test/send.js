@@ -7,23 +7,28 @@ async function run() {
 	const broker = await zaek.connect({
 		user: 'guest',
 		pass: 'guest',
+		username: 'guest',
+		password: 'guest',
 		server: ['127.0.0.1'],
 		port: 5672,
-		publishTimeout: 1000,
-		timeout: 1000,
-		failAfter: 30,
-		retryLimit: 400,
+		hostname: 'localhost',
 	});
-	const stream = await broker.publisher('test:zaek:event-2', true).createWriteStream({
-		publishTimeout: 1000,
-	});
+
+	const stream = await broker.worker('test:zaek:command:152').createWriteStream();
 	return stream;
 	// await stream.write({ hello: 'world' }).catch(e => console.log(e));
 }
 
+
 run().then((s) => {
+	s.write({
+		routingKey: 'mitko:mitko',
+		body: { hi: 'yjere' },
+	})
+	/*
 	for (let i = 0; i < 100000; i++)
 		s.write({
 			body: i,
 		});
+	*/
 });
