@@ -18,8 +18,9 @@ async function run() {
 	});
 
 
-	const stream = await broker.worker('test:zaek:command:152').createReadStream(['mitko:mitko']);
-	console.log(stream);
+	const stream = await broker.publisher('test:zaek:command:154').createReadStream('mitko', {
+		bindingKey: 'mitko.*',
+	});
 
 	stream.on('data', (message) => {
 		console.log(message);

@@ -14,7 +14,7 @@ async function run() {
 		hostname: 'localhost',
 	});
 
-	const stream = await broker.worker('test:zaek:command:152').createWriteStream();
+	const stream = await broker.publisher('test:zaek:command:154').createWriteStream();
 	return stream;
 	// await stream.write({ hello: 'world' }).catch(e => console.log(e));
 }
@@ -22,7 +22,7 @@ async function run() {
 
 run().then((s) => {
 	s.write({
-		routingKey: 'mitko:mitko',
+		routingKey: 'mitko.pesho',
 		body: { hi: 'yjere' },
 	})
 	/*
