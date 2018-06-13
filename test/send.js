@@ -14,7 +14,7 @@ async function run() {
 		hostname: 'localhost',
 	});
 
-	const stream = await broker.publisher('test:zaek:command:154').createWriteStream();
+	const stream = await broker.publisher('test:zaek:command:154').createWriteStream('typed');
 	return stream;
 	// await stream.write({ hello: 'world' }).catch(e => console.log(e));
 }
