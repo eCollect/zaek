@@ -1,6 +1,6 @@
 {
   "name": "zaek",
-  "version": "0.1.46",
+  "version": "0.1.47",
   "description": "Streaming rabbitMQ service bus",
 	"main": "lib/index.js",
 	"repository": {
