@@ -1,6 +1,6 @@
 {
   "name": "zaek",
-  "version": "0.1.47",
+  "version": "0.1.5",
   "description": "Streaming rabbitMQ service bus",
 	"main": "lib/index.js",
 	"repository": {
@@ -18,6 +18,6 @@
   "author": "eCollect AG.",
   "license": "UNLICENSED",
   "dependencies": {
-    "amqplib": "^0.5.2"
+    "amqplib": "^0.5.3"
   }
 }
