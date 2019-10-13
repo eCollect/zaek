@@ -8,7 +8,7 @@
 					"type": "node",
 					"request": "launch",
 					"name": "Launch Test Reciver",
-					"program": "${workspaceFolder}/test/recive.js"
+					"program": "${workspaceFolder}/examples/receive.js"
 				},
         {
             "type": "node",
