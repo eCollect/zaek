@@ -46,7 +46,7 @@ zaekBroker.once('error', (errr) => {
 Additionally, if you want to get informed when zaek becomes disconnected, subscribe to the `disconnect` event.
 
 ```js
-zaekBroker.once('error', (errr) => {
+zaekBroker.once('disconnect', (errr) => {
 	/// ...
 });
 ```
