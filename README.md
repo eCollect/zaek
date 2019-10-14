@@ -5,7 +5,7 @@
 <h1 align="center">zaek</h1>
 
 <p align="center">
-Simplifies work with RabbitMQ exchanges and queues.
+Simplifies work with streaming RabbitMQ exchanges and queues.
 </p>
 
 <p align="center">

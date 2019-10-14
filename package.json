@@ -1,7 +1,7 @@
 {
  "name": "zaek",
- "version": "0.1.54",
- "description": "Streaming rabbitMQ service bus",
+ "version": "1.0.0",
+ "description": "Simplifies work with streaming RabbitMQ exchanges and queues.",
  "main": "lib/index.js",
  "repository": {
   "type": "git",
