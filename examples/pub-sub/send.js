@@ -1,9 +1,10 @@
 'use strict';
 
-const zaek = require('../lib/index');
+/* eslint-disable no-console */
+
+const zaek = require('../../lib/index');
 
 async function run() {
-	// const broker = await zaek.connect('amqp://guest:guest@localhost:5672');
 	const broker = await zaek.connect({
 		user: 'guest',
 		pass: 'guest',
@@ -13,6 +14,13 @@ async function run() {
 		port: 5672,
 		hostname: 'localhost',
 	});
+
+	const onError = (err) => {
+		console.error(err);
+		process.exit(1);
+	};
+
+	broker.once('error', onError);
 
 	const stream = await broker.publisher('test:zaek:command:154').createWriteStream('typed');
 	return stream;
@@ -24,7 +32,7 @@ run().then((s) => {
 	s.write({
 		routingKey: 'mitko.pesho',
 		body: { hi: 'yjere' },
-	})
+	});
 	/*
 	for (let i = 0; i < 100000; i++)
 		s.write({

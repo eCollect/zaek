@@ -1,6 +1,8 @@
 'use strict';
 
-const zaek = require('../lib/index');
+/* eslint-disable no-console */
+
+const zaek = require('../../lib/index');
 
 async function run() {
 	const broker = await zaek.connect({
@@ -13,21 +15,23 @@ async function run() {
 		hostname: 'localhost',
 	});
 
-	broker.once('error', err => {
-		console.log(err);
-	});
+	const onError = (err) => {
+		console.error(err);
+		process.exit(1);
+	};
+
+	broker.once('error', onError);
 
 
 	const stream = await broker.publisher('test:zaek:command:154').createReadStream('mitko', {
 		bindingKey: 'mitko.*',
 	});
+	stream.on('error', onError);
 
 	stream.on('data', (message) => {
 		console.log(message);
 		message.ack();
 	});
-
-	stream.on('error', (e) => console.error(e));
 }
 
 run();
