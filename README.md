@@ -1,10 +1,25 @@
 <p align="center">
-	<img src="assets/images/logo/default.png" width="200px" height="auto"/>
+	<img src="assets/images/logo/vector/default.svg" width="300px" height="auto"/>
 </p>
 
-# zaek
+<h1 align="center">zaek</h1>
 
-Streaming rabbitMQ service bus
+<p align="center">
+Simplifies work with RabbitMQ exchanges and queues.
+</p>
+
+<p align="center">
+<a href="https://travis-ci.org/eCollect/zaek" title="Build Status"><img src="https://travis-ci.org/eCollect/zaek.svg?branch=master" alt="Build Status" /></a>
+<a href="https://www.npmjs.com/package/zaek" title="Build Status">
+<img alt="zaek" src="https://img.shields.io/npm/v/zaek">
+</a>
+<a href='https://coveralls.io/github/eCollect/zaek?branch=next' title="Coverage Status"><img src='https://coveralls.io/repos/github/eCollect/zaek/badge.svg?branch=next' alt='Coverage Status' /></a>
+<a href="https://snyk.io/test/github/ecollect/zaek" title="Known Vulnerabilities">
+<img src="https://snyk.io/test/github/ecollect/zaek/badge.svg" alt="Known Vulnerabilities">
+</a>
+<a href="/eCollect/zaek/blob/master/LICENSE" title="zaek MIT license"><img alt="MIT" src="https://img.shields.io/github/license/ecollect/zaek"></a>
+
+</p>
 
 ## Installation
 
