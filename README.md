@@ -83,6 +83,14 @@ workSrream.on('data', (message) => {
 });
 ```
 
+> **TODO** explain about additional available options. Especially persistence.
+
+### Pub-Sub
+
+A publisher is a combination of a single exchange with multiple queues where each queue receives all messages. For that, call the publisher function and specify a name.
+
+// TODO...
+
 ## License
 
 MIT License
