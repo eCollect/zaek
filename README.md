@@ -51,6 +51,38 @@ zaekBroker.once('disconnect', (err) => {
 });
 ```
 
+## Implemented Patterns
+
+### Worker
+
+A Worker Queue is a combination of a single exchange with a single queue that shares its load across multiple nodes ( Round-robin dispatching ). One of the advantages of using a Worker Queue is the ability to easily parallelize work. If we are building up a backlog of work, we can just add more workers and that way, scale easily.
+
+For that, call the worker function on the zaekBroker and specify a name.
+
+```js
+const worker = zaekBroker.worker('zaek:test:worker');
+```
+
+To publish messages to this worker, call the createWriteStream function, and then use the write function of the stream that is returned. You have to supply the body of the message in the ```body``` property
+
+```js
+const publishStream = await worker.createWriteStream();
+publishStream.write({ body: { foo: 'bar' } });
+```
+
+To subscribe to messages received by this worker, call the createReadStream function, and then subscribe to the stream's data event. You can access the message's body through its ```body``` property.
+
+Additionally, you need to process the received message. If you were able to successfully handle the message, call the ```ack``` function. If not, either call ```reject``` (which removes the message), or call ```nack``` (which requeues the message).
+
+```js
+const workSrream = await worker.createReadStream();
+workSrream.on('data', (message) => {
+	console.log(`foo says ${message.body.foo}`); // foo says bar
+  // ...
+  message.ack(); // or message.reject(); or message.nack();
+});
+```
+
 ## License
 
 MIT License
