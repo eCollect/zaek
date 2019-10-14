@@ -1,3 +1,7 @@
+<p align="center">
+	<img src="assets/images/logo/default.png" width="200px" height="auto"/>
+</p>
+
 # zaek
 
 Streaming rabbitMQ service bus
