@@ -23,13 +23,13 @@ async function run() {
 	broker.once('error', onError);
 
 
-	const stream = await broker.worker('test:zaek:worker').createReadStream({});
+	const stream = await broker.worker('test:zaek:worker').createReadStream({ prefetch: 2 });
 	stream.on('error', onError);
 
 	stream.on('data', (message) => {
-		console.log(`---[work received ${process.pid}]----`);
+		console.log(`---[work received wid: ${message.body.i}  pid: ${process.pid}]----`);
 		console.log(message);
-		setTimeout(() => message.ack());
+		setTimeout(() => message.ack(), Math.random() * 1000); // simulate work
 	});
 }
 
