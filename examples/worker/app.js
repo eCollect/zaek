@@ -23,7 +23,7 @@ async function run() {
 	broker.once('error', onError);
 
 
-	const stream = await broker.worker('test:zaek:worker').createWriteStream('commands');
+	const stream = await broker.worker('test:zaek:worker').createWriteStream();
 	stream.on('error', onError);
 
 	for (let i = 0; i < 100; i++)
