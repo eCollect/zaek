@@ -15,6 +15,12 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/lib/index.js"
-        }
+				},
+        {
+					"type": "node",
+					"request": "launch",
+					"name": "Launch RPC Demo",
+					"program": "${workspaceFolder}/examples/single-process/rpc.js"
+				}
     ]
 }
