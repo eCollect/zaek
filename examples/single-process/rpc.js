@@ -39,7 +39,7 @@ async function run() {
 
 	broker.once('error', onError);
 
-	const readStream = await broker.worker('test:zaek:worker').createReadStream({ prefetch: 1 });
+	const readStream = await broker.rpc('test:zaek:rpc').createReadStream({ prefetch: 1 });
 	readStream.on('error', onError);
 
 	const endAwaitor = new EndAwaitor();
@@ -56,17 +56,10 @@ async function run() {
 		return setTimeout(() => message.ack(), Math.random() * 10); // simulate work
 	});
 
-	const writeStream = await broker.worker('test:zaek:worker').createWriteStream();
-	writeStream.on('error', onError);
+	const rpcClient = await broker.rpc('test:zaek:rpc').createClient();
 
-	for (let i = 0; i < 100; i++)
-		writeStream.write({
-			body: { i },
-		});
 
-	writeStream.write({
-		body: null,
-	});
+	console.log(await rpcClient.ask('hello'));
 
 	/*
 	writeStream.end(async () => {
