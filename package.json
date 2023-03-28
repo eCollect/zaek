@@ -1,6 +1,6 @@
 {
  "name": "zaek",
- "version": "1.1.0",
+ "version": "1.1.1",
  "description": "Simplifies work with streaming RabbitMQ exchanges and queues.",
  "main": "lib/index.js",
  "repository": {
