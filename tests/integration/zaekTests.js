@@ -18,7 +18,7 @@ const connectionOptions = {
 	password: 'guest',
 	server: ['127.0.0.1'],
 	port: 5672,
-	hostname: 'localhost',
+	hostname: '127.0.0.1',
 };
 
 
